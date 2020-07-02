@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 // 최소금액인 4000원 이상이 되어야 계산을 시작함
+                v_result.isVisible = false
                 if (!s.isNullOrEmpty()) {
                     val inputMoney = s.toString().toInt()
                     if (inputMoney >= 4000) {
