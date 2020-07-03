@@ -6,27 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/v_input"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/v_input_layout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autofillHints=""
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:hint="@string/input_hint"
-        android:inputType="number"
+        app:endIconMode="clear_text"
+        app:errorEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="10000" />
+        app:startIconDrawable="@drawable/ic_baseline_attach_money_24"
+        app:suffixText="원">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/v_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            tools:text="10000" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/v_result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxLines="1"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/v_input"
+        app:layout_constraintTop_toBottomOf="@id/v_input_layout"
         tools:text="내가 입력한 숫자가 여기에 보이도록 "
         tools:visibility="visible" />
 

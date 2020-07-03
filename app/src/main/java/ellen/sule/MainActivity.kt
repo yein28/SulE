@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        // doOnTextChanged
         v_input.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 // 완료 애니메이션?
@@ -27,8 +27,11 @@ class MainActivity : AppCompatActivity() {
                 if (!s.isNullOrEmpty()) {
                     val inputMoney = s.toString().toInt()
                     if (inputMoney >= 4000) {
+                        v_input_layout.error = null
                         v_result.isVisible = true
                         v_result.text = "${inputMoney / 4000}병"
+                    } else {
+                        v_input_layout.error = "최소 금액은 4000원 입니다."
                     }
                 }
             }
